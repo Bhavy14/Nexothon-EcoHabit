@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 import { 
   Leaf, 
   BarChart3, 
@@ -10,7 +11,8 @@ import {
   Store, 
   User,
   Menu,
-  X
+  X,
+  Bell
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -21,8 +23,9 @@ const Navbar = () => {
     { name: 'Dashboard', href: '/dashboard', icon: BarChart3 },
     { name: 'Habits', href: '/habits', icon: Target },
     { name: 'Streaks', href: '/streaks', icon: Calendar },
-    { name: 'Achievements', href: '/achievements', icon: Trophy },
-    { name: 'Eco Store', href: '/store', icon: Store },
+    { name: 'Leaderboard', href: '/leaderboard', icon: Trophy },
+    { name: 'Store', href: '/store', icon: Store },
+    { name: 'Notifications', href: '/notifications', icon: Bell },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -62,8 +65,9 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* Profile & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          {/* Profile & Theme Toggle & Mobile Menu */}
+          <div className="flex items-center space-x-2">
+            <ThemeToggle />
             <Button variant="ghost" size="sm" className="hidden md:flex items-center space-x-2">
               <User className="w-4 h-4" />
               <span>Profile</span>

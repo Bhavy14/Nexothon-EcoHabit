@@ -96,34 +96,55 @@ All colors MUST be HSL for consistency.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Core Background & Text */
+    --background: 140 25% 8%;
+    --foreground: 120 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Card & Surface Colors */
+    --card: 140 20% 12%;
+    --card-foreground: 120 15% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 140 20% 12%;
+    --popover-foreground: 120 15% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Eco-Themed Primary Colors (Bright Green for dark mode) */
+    --primary: 140 55% 60%;
+    --primary-foreground: 140 25% 8%;
+    --primary-light: 140 45% 70%;
+    --primary-dark: 140 65% 50%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary Colors (Dark Sage) */
+    --secondary: 140 15% 20%;
+    --secondary-foreground: 120 15% 85%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Muted Colors (Dark Gray-Green) */
+    --muted: 140 10% 18%;
+    --muted-foreground: 120 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Accent Colors (Bright Mint for dark mode) */
+    --accent: 165 35% 25%;
+    --accent-foreground: 120 15% 85%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Success & Achievement Colors */
+    --success: 140 60% 55%;
+    --success-foreground: 140 25% 8%;
+    --success-light: 140 50% 65%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
+    /* Warning & Energy Colors */
+    --warning: 45 80% 60%;
+    --warning-foreground: 140 25% 8%;
+
+    /* Destructive Colors */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 120 15% 90%;
+
+    /* Border & Input Colors */
+    --border: 140 15% 22%;
+    --input: 140 15% 20%;
+    --ring: 140 55% 60%;
+
+    /* Sidebar Dark Theme */
+    --sidebar-background: 140 20% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -195,5 +216,52 @@ All colors MUST be HSL for consistency.
 
   .metric-card {
     @apply eco-card p-6 hover:bg-accent/20 transition-[var(--transition-smooth)];
+  }
+
+  /* Confetti Animation */
+  .confetti-celebration {
+    animation: confetti-fall 3s ease-out forwards;
+  }
+
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  /* Enhanced Hover Effects */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Pulse Animation for Notifications */
+  .notification-pulse {
+    animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.33);
+    }
+    80%, 100% {
+      opacity: 0;
+    }
+  }
+
+  /* Gradient Text Effect */
+  .gradient-text {
+    background: var(--gradient-eco);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
